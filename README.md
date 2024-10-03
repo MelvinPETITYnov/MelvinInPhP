@@ -20,7 +20,6 @@ Avant de commencer, assurez-vous d'avoir installé les éléments suivants :
 1. **Clonez le dépôt**:
    ```bash
    git clone https://github.com/MelvinPETITYnov/MelvinInPhP.git
-   cd docker
    docker-compose up
    open browser and try 127.0.0.1 
 

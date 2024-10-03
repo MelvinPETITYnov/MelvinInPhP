@@ -4,13 +4,13 @@ services:
     ports:
       - "80:80"
     volumes:
-      - ../services/nginx/nginx.conf:/etc/nginx/conf.d/nginx.conf
-      - ../app/index.php:/app
+      - ./services/nginx/nginx.conf:/etc/nginx/conf.d/default.conf  
+      - ./app:/app  
 
   app:
-    build: services/php
+    build: ./services/php  
     volumes:
-      - ../app:/app
+      - ./app:/app 
 
   db:
     image: mariadb:latest
