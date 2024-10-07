@@ -1,7 +1,102 @@
 body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
+    font-family: "Manrope", sans-serif;
+    font-optical-sizing: auto;
     margin: 0;
     padding: 0;
-    background-color: #ff0000;
+    background: linear-gradient(90deg, #00c3ff 0%, #ffcc00 100%);
+}
+
+/*BOX COLOR BACKGROUND*/ 
+
+
+.card {
+    position: absolute;
+    z-index: -1;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80vw;
+    height: 200vh;
+    background: rgba(255, 255, 255, 0.829);
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+@media only screen and (max-width: 767px) {
+    .card {
+        width: 90vw;
+        margin: auto;
+        height: 200vw; 
+        padding: 20px; 
+        box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 3px, rgba(0, 0, 0, 0.15) 0px 4px 10px -2px; /* Lighter shadow for mobile */
+    }
+}
+
+
+
+
+/*TITLE SECTION*/
+
+
+
+.title h1 {
+    text-align: center;
+    justify-content: center;
+    margin-top: 20vw;
+    font-size: 5vw;
+    background-image: linear-gradient(90deg, #53cbef 0%, #dcc66c 50%, #ffa3b6 75%, #53cbef 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: slidernbw 5s linear infinite;
+    user-select: none;
+}
+
+.title p {
+    text-align: center;
+    justify-content: center;
+    margin-top: 1vw;
+    font-size: 2vw;
+    text-transform: uppercase;
+    background-image: linear-gradient(90deg, #53cbef 0%, #dcc66c 50%, #ffa3b6 75%, #53cbef 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: slidernbw 5s linear infinite;
+    user-select: none;
+}
+    
+
+
+
+
+/*BUTTON SECTION*/ 
+
+
+button {
+    background-color: #44414191;
+    border-color: wheat;
+    position: absolute;
+    top: 50vw;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 7px;
+    color: #fff;
+    cursor: pointer;
+    padding: 1vw 4vw;
+    font-size: 1vw;
+    font-weight: bold;
+    letter-spacing: 2px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+
+}
+
+button:hover {
+    background-image: linear-gradient(90deg, #53cbef 0%, #dcc66c 50%, #ffa3b6 75%, #53cbef 100%);
+    animation: slidernbw 5s linear infinite;
+    color: #000;
+}
+
+@keyframes slidernbw {
+    to {
+        background-position: 20vw;
+    }
 }

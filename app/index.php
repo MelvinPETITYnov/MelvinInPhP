@@ -4,29 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
     <title>Page de Test</title>
 </head>
 <body>
-    <header>
-        <h1>Bienvenue sur ma page de test</h1>
-    </header>
-    <main>
-        <section>
-            <h2>À propos de moi</h2>
-            <p>Ceci est une page de test pour démontrer l'intégration de CSS avec PHP.</p>
-        </section>
-        <section>
-            <h2>Mes compétences</h2>
-            <ul>
-                <li>Développement web</li>
-                <li>PHP</li>
-                <li>HTML/CSS</li>
-                <li>JavaScript</li>
-            </ul>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2024 Mon Site Web</p>
-    </footer>
+
+    <div class="card"></div>
+
+
+    <!-- TITLE SECTION -->
+    <div class="title">
+        <h1>WELCOME HERE</h1>
+        <p>Curriculum vitæ</p>
+    </div>
+
+
+    <!-- BUTTON SECTION -->
+<div class="button">
+    <a href="login.php">
+        <button> ★ LET'S CREATE ★ </button>
+    </a>
+</div>
+
+
+
+
+
+
+
+
+
+
+
 </body>
 </html>
