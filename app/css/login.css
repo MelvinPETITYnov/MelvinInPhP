@@ -13,6 +13,8 @@ body {
     background: linear-gradient(90deg, #00c3ff 0%, #ffcc00 100%);
 }
 
+/* LOGIN SECTION */
+
 .login {
     width: 20vw; 
     background-color: #ffffff;
@@ -70,41 +72,70 @@ body {
     transition: background-color 0.2s;
 }
 
-/* Media Queries for responsiveness */
+
+/* RESPONSIVE LOGIN SECTION */
 @media (max-width: 768px) {
     .login {
-        width: 50vw; /* Adjusted for tablets */
+        width: 50vw; 
     }
 
     .login h1 {
-        font-size: 2vw; /* Adjusted for tablets */
+        font-size: 2vw; 
     }
 
     .login form label, .login form input[type="password"], .login form input[type="text"] {
-        width: 40vw; /* Adjusted for tablets */
-        height: 5vw; /* Adjusted for tablets */
+        width: 40vw; 
+        height: 5vw; 
     }
 
     .login form input[type="submit"] {
-        padding: 1.5vw; /* Adjusted for tablets */
+        padding: 1.5vw; 
     }
 }
 
 @media (max-width: 480px) {
     .login {
-        width: 80vw; /* Adjusted for mobile phones */
+        width: 80vw; 
     }
 
     .login h1 {
-        font-size: 4vw; /* Adjusted for mobile phones */
+        font-size: 4vw; 
     }
 
     .login form label, .login form input[type="password"], .login form input[type="text"] {
-        width: 70vw; /* Adjusted for mobile phones */
-        height: 8vw; /* Adjusted for mobile phones */
+        width: 70vw;
+        height: 8vw; 
     }
 
     .login form input[type="submit"] {
-        padding: 2vw; /* Adjusted for mobile phones */
+        padding: 2vw; 
     }
+}
+
+
+
+
+/* REGISTER SECTION */
+
+
+.register-button {
+    width: 5vw; 
+    padding: 0.1vw; 
+    background-color: #3274d69d; 
+    border: 0; 
+    cursor: pointer; 
+    font-weight: bold; 
+    color: #ffffff; 
+    transition: background-color 0.2s; 
+}
+
+ p {
+
+    color: #5b6574; 
+    font-size: 0.7vw; 
+}
+
+.register-button:hover {
+    background-color: #2868c7; 
+    transition: background-color 0.2s;
 }

@@ -23,7 +23,7 @@
 
     <!-- BUTTON SECTION -->
 <div class="button">
-    <a href="login.php">
+    <a href="cv.php">
         <button> ★ LET'S CREATE ★ </button>
     </a>
 </div>

@@ -1,40 +1,121 @@
 <?php
-if (isset($_POST['register'])) {
-    // Connexion à la base de données
-    $mysqli = new mysqli("db", "user", "password", "phplogin");
+// Configurer l'affichage des erreurs pour le débogage
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
-    // Vérification des erreurs de connexion
-    if ($mysqli->connect_error) {
-        die("Connection failed: " . $mysqli->connect_error);
-    }
+// Démarrer la session
+session_start();
 
-    // Préparer et lier l'instruction SQL
-    $stmt = $mysqli->prepare("INSERT INTO users (username, email, password) VALUES (?, ?, ?)");
-    $stmt->bind_param("sss", $username, $email, $password);
+// Connexion à la base de données
+$mysqli = new mysqli("db", "root", "root", "cv_db");
 
-    // Récupérer les données du formulaire
-    $username = $_POST['username'];
-    $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL); // Nettoyer l'email
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        die("Invalid email format!");
-    }
-    $password = $_POST['password'];
+// Vérifier la connexion
+if ($mysqli->connect_error) {
+    die("Connection failed: " . $mysqli->connect_error);
+}
 
-    // Hacher le mot de passe
-    $password = password_hash($password, PASSWORD_DEFAULT);
+// Vérifier si le formulaire a été soumis
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Vérifier si c'est une inscription ou une connexion
+    if (isset($_POST['register'])) {
+        // Récupérer les données du formulaire d'inscription
+        $username = trim($_POST['username']);
+        $email = trim($_POST['email']);
+        $password = trim($_POST['password']);
 
-    // Exécuter l'instruction SQL
-    if ($stmt->execute()) {
-        echo "New account created successfully!";
-    } else {
-        if ($stmt->errno == 1062) { // Code d'erreur pour une entrée en double
-            echo "Username or email already exists!";
+        // Vérifie si l'e-mail existe déjà
+        $stmt = $mysqli->prepare("SELECT * FROM users WHERE email = ?");
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result->num_rows > 0) {
+            // E-mail déjà utilisé
+            header("Location: register.php?alert=mail_exists");
+            exit();
+        }
+
+        // Vérifier que les champs ne sont pas vides
+        if (empty($username) || empty($email) || empty($password)) {
+            die("Please fill in all fields.");
+        }
+
+        // Préparer une requête pour insérer l'utilisateur dans la base de données
+        $sql = "INSERT INTO users (username, email, password) VALUES (?, ?, ?)";
+        $stmt = $mysqli->prepare($sql);
+
+        // Vérifier si la préparation a réussi
+        if (!$stmt) {
+            die("Error preparing statement: " . $mysqli->error);
+        }
+
+        // Hacher le mot de passe avant de l'insérer
+        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
+        // Lier les paramètres et exécuter la requête
+        $stmt->bind_param("sss", $username, $email, $hashed_password);
+        
+        if ($stmt->execute()) {
+            // Redirection vers cv.php après une inscription réussie
+            header("Location: cv.php");
+            exit();
         } else {
             echo "Error: " . $stmt->error;
         }
-    }
 
-    $stmt->close();
-    $mysqli->close();
+        // Fermer la déclaration
+        $stmt->close();
+    } elseif (isset($_POST['login'])) {
+        // Récupérer les données du formulaire de connexion
+        $email = trim($_POST['e-mail']);
+        $password = trim($_POST['password']);
+
+        // Vérifier que les champs ne sont pas vides
+        if (empty($email) || empty($password)) {
+            die("Please fill in all fields.");
+        }
+
+        // Préparer une requête pour vérifier les informations d'identification de l'utilisateur
+        $sql = "SELECT id, username, password FROM users WHERE email = ?";
+        $stmt = $mysqli->prepare($sql);
+
+        // Vérifier si la préparation a réussi
+        if (!$stmt) {
+            die("Error preparing statement: " . $mysqli->error);
+        }
+
+        // Lier les paramètres et exécuter la requête
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+        $stmt->store_result();
+
+        // Vérifier si l'utilisateur existe
+        if ($stmt->num_rows > 0) {
+            $stmt->bind_result($id, $username, $hashed_password);
+            $stmt->fetch();
+
+            // Vérifier le mot de passe
+            if (password_verify($password, $hashed_password)) {
+                // Enregistrer les informations de l'utilisateur dans la session
+                $_SESSION['user_id'] = $id; // ID de l'utilisateur
+                $_SESSION['email'] = $email; // Email de l'utilisateur
+                $_SESSION['username'] = $username; 
+                // Redirection vers cv.php après une connexion réussie
+                header("Location: cv.php");
+                exit();
+            } else {
+                header("Location: login.php?error=wrong_password");
+                exit();
+            }
+        } else {
+            header("Location: login.php?error=user_not_found");
+            exit();
+        }
+
+        $stmt->close();
+    }
 }
+
+// Fermer la connexion
+$mysqli->close();
 ?>
