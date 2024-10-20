@@ -10,7 +10,8 @@ body {
     margin: 0;
     padding: 0;
     height: 100vh;
-    background: linear-gradient(90deg, #00c3ff 0%, #ffcc00 100%);
+    background: linear-gradient(180deg, #FABC3F 0%, #821131 100%);
+    background-repeat: no-repeat;
 }
 
 /* REGISTER SECTION */

@@ -56,8 +56,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->bind_param("sss", $username, $email, $hashed_password);
         
         if ($stmt->execute()) {
-            // Redirection vers cv.php après une inscription réussie
-            header("Location: cv.php");
+            // Redirection vers index.php après une inscription réussie
+            header("Location: index.php");
             exit();
         } else {
             echo "Error: " . $stmt->error;
@@ -100,8 +100,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $_SESSION['user_id'] = $id; // ID de l'utilisateur
                 $_SESSION['email'] = $email; // Email de l'utilisateur
                 $_SESSION['username'] = $username; 
-                // Redirection vers cv.php après une connexion réussie
-                header("Location: cv.php");
+                // Redirection vers index.php après une connexion réussie
+                header("Location: index.php");
                 exit();
             } else {
                 header("Location: login.php?error=wrong_password");
