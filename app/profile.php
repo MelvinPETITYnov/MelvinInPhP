@@ -23,7 +23,11 @@ include 'informations.php';
 </head>
 <body>
 
-
+<div class="button">
+    <a href="index.php" <?php session_destroy(); ?>>
+        <button> ★ LOGOUT ★ </button>
+    </a>
+</div>
 
     <!-- TITLE SECTION -->
     <div class="title">
@@ -63,7 +67,12 @@ include 'informations.php';
     </a>
 </div>
 
+
+
+
 <div class="projets-container">
+
+
 
 <?php
 

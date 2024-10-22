@@ -159,6 +159,9 @@ body {
     flex-wrap: wrap;
     gap: 20px; 
     justify-content: flex-start; 
+    margin-top: 5%;
+    margin-left: 5%;
+    margin-right: 5%;
 }
 
 .projet {
@@ -181,3 +184,39 @@ body {
 }
 
 
+.button {
+    margin-left: 85%;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.button a {
+    text-decoration: none;
+}
+
+.button button {
+    background-color: #ff890221;
+    border: 2px solid rgba(255, 255, 255, 0.281);
+    border-radius: 2px;
+    color: #000000;
+    cursor: pointer;
+    padding: 1vw 2vw;
+    font-size: 1vw;
+    font-weight: bold;
+    letter-spacing: 2px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.button button:hover {
+    background-image: rgb(255, 255, 255);
+    animation: slidernbw 5s linear infinite;
+    color: #000;
+}
+
+@media (max-width: 768px) {
+    .button button {
+        width: 50vw;
+        padding: 4vw 5vw;
+        font-size: 3vw;
+    }
+}
