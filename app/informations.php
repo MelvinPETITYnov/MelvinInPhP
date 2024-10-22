@@ -1,6 +1,5 @@
 <?php
 
-
 // Connexion à la base de données
 $mysqli = new mysqli("db", "root", "root", "cv_db");
 

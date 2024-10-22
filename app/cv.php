@@ -16,6 +16,9 @@ include 'informations.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/cv.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
     <title>Profil de l'utilisateur</title>
 </head>
 <body>
@@ -36,8 +39,9 @@ include 'informations.php';
 
         <label for="sex">Sexe:</label>
         <select id="sex" name="sex" required>
-            <option value="male" <?php echo (isset($sex) && $sex == 'male') ? 'selected' : ''; ?>>Homme</option>
-            <option value="female" <?php echo (isset($sex) && $sex == 'female') ? 'selected' : ''; ?>>Femme</option>
+            <option value="Masculin" <?php echo (isset($sex) && $sex == 'Masculin') ? 'selected' : ''; ?>>Homme</option>
+            <option value="Feminin" <?php echo (isset($sex) && $sex == 'Feminin') ? 'selected' : ''; ?>>Femme</option>
+            <option value="Poubelle Deluxe Phantom Sensor Eko 45L inox mat" <?php echo (isset($sex) && $sex == 'Poubelle Deluxe Phantom Sensor Eko 45L inox mat') ? 'selected' : ''; ?>>Poubelle Deluxe Phantom Sensor Eko 45L inox mat</option>
         </select>
 
         <label for="address">Adresse:</label>

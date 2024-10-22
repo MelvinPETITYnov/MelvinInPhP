@@ -3,7 +3,7 @@ body {
     font-optical-sizing: auto;
     margin: 0;
     padding: 0;
-    height: 100vh;
+    height: 90vh;
     background: linear-gradient(180deg, #FABC3F 0%, #821131 100%);
     background-size: cover;
     background-repeat: no-repeat;
@@ -16,8 +16,8 @@ body {
     text-align: center;
     justify-content: center;
     margin-top: 20vw;
-    font-size: 5vw;
-    color: #FABC3F;
+    font-size: 6vw;
+    color: #ffffff;
     user-select: none;
 }
 
@@ -27,15 +27,15 @@ body {
     margin-top: 1vw;
     font-size: 2vw;
     text-transform: uppercase;
-    color:  #FABC3F;
+    color:  #ffffff;
     user-select: none;
 }
 
 /*BUTTON SECTION*/
 
 .cv button {
-    background-color: #44414191;
-    border-color: rgb(0, 0, 0);
+    background-color: #44414113;
+    border-color: rgba(255, 255, 255, 0.281);
     position: absolute;
     top: 50vw;
     left: 50%;
