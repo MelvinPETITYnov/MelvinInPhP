@@ -18,9 +18,14 @@ Avant de commencer, assurez-vous d'avoir installé les éléments suivants :
 ## 🚀 Installation
 
 1. **Clonez le dépôt**:
+
    ```bash
    git clone https://github.com/MelvinPETITYnov/MelvinInPhP.git
-   docker-compose up
+
+   cd MELVININPHP
+
+   docker-compose up --build
+
    open browser and try 127.0.0.1 
 
-#ENJOY !
+##  Enjoy ! 
